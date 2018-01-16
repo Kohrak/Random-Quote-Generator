@@ -9,7 +9,7 @@ function getQuote() {
   wikiRequest.onload = function(){
   var wikiData = JSON.parse(wikiRequest.responseText);
   //var quoteText = wikiData[0].content.replace("<p>", "").replace("</p>", "")
-  document.getElementById("quote").innerHTML = "\"" + wikiData.quoteText + "\"";
+  document.getElementById("quote").innerHTML = "<i class='fa fa-quote-left'></i>" + wikiData.quoteText + "<i class='fa fa-quote-right'></i>";
   if (wikiData.quoteAuthor == ""){
     document.getElementById("name").innerHTML = "-Anonymous";
   } else {
