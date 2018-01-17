@@ -3,6 +3,7 @@ var globalQuote = ""
 function jsonpRequest(){
   var key = Math.floor((Math.random() * 999999));
   var tag = document.createElement("script");
+  tag.id = "jsonpCall"
   tag.src = "https://api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&lang=en&jsonp=getQuote&key=" + key;
   document.getElementsByTagName("head")[0].appendChild(tag);
 }
@@ -16,6 +17,7 @@ function getQuote(wikiData) {
   if (wikiData != ""){
     globalQuote = "\"" + wikiData.quoteText + "\" " + document.getElementById("name").innerHTML;
   }
+  document.getElementsByTagName("head")[0].removeChild(document.getElementById("jsonpCall"));
 };
 
 function tweet(text) {
